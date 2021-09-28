@@ -1,10 +1,8 @@
 import React from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { useField } from 'formik'
-
 import FormError from '../formError'
 
-import { House, Apartment } from '../icons'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

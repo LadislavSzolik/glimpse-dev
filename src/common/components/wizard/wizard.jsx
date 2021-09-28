@@ -1,29 +1,29 @@
 import { Form, Formik } from 'formik'
 import React, { useState } from 'react'
 
-import Button from './common/button'
-import Secondary from './common/secondary'
-import Progress from './common/progress'
+import Button from '../elements/button'
+import Secondary from '../elements/secondary'
+import Progress from '../elements/progress'
 
-const Wizard = ({ children, initialValues, onSubmit, stepLabels }) => {
-  const [stepNumber, setStepNumber] = useState(0)
+const Wizard = ({ children,  stepLabels, stepNumber }) => {
+  //const [stepNumber, setStepNumber] = useState(0)
   const steps = React.Children.toArray(children)
-  const [snapshot, setSnapshot] = useState(initialValues)
+  //const [snapshot, setSnapshot] = useState(initialValues)
 
   const step = steps[stepNumber]
 
   const totalSteps = steps.length
   const isLastStep = stepNumber === totalSteps - 1
 
-  const next = (values) => {
-    setSnapshot(values)
-    setStepNumber(Math.min(stepNumber + 1, totalSteps - 1))
-  }
+  // const next = (values) => {
+  //   setSnapshot(values)
+  //   setStepNumber(Math.min(stepNumber + 1, totalSteps - 1))
+  // }
 
-  const previous = (values) => {
-    setSnapshot(values)
-    setStepNumber(Math.max(stepNumber - 1, 0))
-  }
+  // const previous = (values) => {
+  //   setSnapshot(values)
+  //   setStepNumber(Math.max(stepNumber - 1, 0))
+  // }
 
   // const handleSubmit = async (values, bag) => {
   //   if (step.props.onSubmit) {
