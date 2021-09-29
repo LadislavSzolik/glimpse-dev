@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { Formik, Form } from "formik";
 import Header1 from "../elements/header1";
 import FormikValue from "../formikValue";
-import AppTextInput from "../appTextInput";
+import AppTextInput from "../elements/appTextInput";
 import Button from "../elements/button";
 import Secondary from "../elements/secondary";
 
@@ -30,7 +30,8 @@ const Location = (props) => {
       initialValues={props.initialValues}
       onSubmit={handleSubmit}
     >
-      {(formik) => (
+      {formik => (
+        
         <Form>
           <Header1>
             The{" "}
@@ -38,7 +39,7 @@ const Location = (props) => {
               {" "}
               <FormikValue valueOf="propertyType" />{" "}
             </span>{" "}
-            is located at...
+            is located at {formik.values.street != "" ? formik.values.street : '...' }
           </Header1>
           <div className="my-10 max-w-3xl grid gap-4 grid-cols-6">
             <AppTextInput

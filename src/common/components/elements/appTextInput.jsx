@@ -1,6 +1,6 @@
 import { useField } from 'formik'
 
-import FormError from './formError'
+import FormError from '../formError'
 
 const TextField = ({
   label,

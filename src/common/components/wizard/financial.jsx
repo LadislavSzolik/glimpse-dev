@@ -5,7 +5,7 @@ import Header1 from "../elements/header1";
 import Header2 from "../elements/header2";
 import Header3 from "../elements/header3";
 import FormikValue from "../formikValue";
-import AppTextInput from "../appTextInput";
+import AppTextInput from "../elements/appTextInput";
 import Button from "../elements/button";
 import Secondary from "../elements/secondary";
 import Description from '../description';

@@ -11,7 +11,7 @@ export default function CreateProperty() {
   const [currentStep, setCurrentStep] = useState(0);
 
   const makeRequest = (formData) => {
-    console.log("Form Submitted", formData);
+   // console.log("Form Submitted", formData);
   };
 
   const handleNextStep = (newData, final = false) => {
@@ -39,7 +39,7 @@ export default function CreateProperty() {
           postCode: '',
           city: '',
           country: '',
-          constructionYear: '',
+          constructionYear: new Date().getFullYear(),
           surface: '',
           bedrooms: '',
           energyLabel: '',
