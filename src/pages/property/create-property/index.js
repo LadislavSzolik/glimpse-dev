@@ -7,6 +7,29 @@ import Financial from '../../../common/components/wizard/financial';
 
 export default function CreateProperty() {
   const steps = ['Type', 'Location', 'General', 'Financial', 'Day-to-Day'];
+  const [data, setData] = useState({
+    propertyType: '',
+    street: '',
+    houseNumber: '',
+    postCode: '',
+    city: '',
+    country: '',
+    constructionYear: new Date().getFullYear(),
+    surface: '',
+    bedrooms: 0,
+    energyLabel: '',
+    acquireDate: '',
+    pruchasePrice: '',
+    closingCosts: '',
+    transactionTaxes: '',
+    renovationCosts: '',
+    addLoan: '',
+    downPayment: '',
+    loanAmount: '',
+    loanAnnualInterestRate: '',
+    loanStartDate: '',
+    loanTerm: '',
+});
 
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -32,29 +55,7 @@ export default function CreateProperty() {
     setCurrentStep((prev) => prev - 1);
   }
 
-  const [data, setData] = useState({
-          propertyType: '',
-          street: '',
-          houseNumber: '',
-          postCode: '',
-          city: '',
-          country: '',
-          constructionYear: new Date().getFullYear(),
-          surface: '',
-          bedrooms: '',
-          energyLabel: '',
-          acquireDate: '',
-          pruchasePrice: '',
-          closingCosts: '',
-          transactionTaxes: '',
-          renovationCosts: '',
-          addLoan: '',
-          downPayment: '',
-          loanAmount: '',
-          loanAnnualInterestRate: '',
-          loanStartDate: '',
-          loanTerm: '',
-  });
+  
 
     return (
       <Wizard  stepLabels={steps} stepNumber={currentStep} >

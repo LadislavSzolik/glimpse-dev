@@ -7,6 +7,8 @@ import AppTextInput from "../elements/appTextInput";
 import Button from "../elements/button";
 import Secondary from "../elements/secondary";
 import numberFormat from '../../utils/numberFormat';
+import wizard from  './wizard.module.css';
+
 
 import AppSelect from '../elements/AppSelect';
 
@@ -25,6 +27,7 @@ const General = (props) => {
 
   const [selectedYear, setSelectedYear] = useState(props.initialValues.constructionYear);
   const [selectedSurface, setSurface] = useState(props.initialValues.surface);
+  const [selectBedroom, setBedroom] = useState(props.initialValues.bedrooms);
   const handleSubmit = (values) => {
     setTimeout(() => {
       props.next(values);
@@ -55,6 +58,16 @@ const General = (props) => {
     props.initialValues.surface=selectedSurface;
   }
 
+  const decreaseBedSize = (value) => {
+   
+    setBedroom((prev) => prev - 1);
+    props.initialValues.bedrooms=selectBedroom;
+  }
+
+  const increaseBedSize = (value) => {
+    setBedroom((prev) => prev + 1);
+    props.initialValues.bedrooms=selectBedroom;
+  }
 
   const year = (new Date(1900,1,1)).getFullYear();
   const years = Array.from(new Array(150),(val, index) => index + year);
@@ -78,9 +91,9 @@ const General = (props) => {
           </Header1>
 
           <div className="my-10 max-w-3xl grid gap-4 grid-cols-6">
-            <div className='col-span-3'>
+            <div className="col-span-3">
               <span className="block text-sm font-medium text-gray-500">
-              Construction year
+                Construction year
               </span>
               <select
                 value={selectedYear}
@@ -110,18 +123,28 @@ const General = (props) => {
               onChange={(e) => {
                 handleNumberFormat(e.target.value);
               }}
-              
             />
-            <AppTextInput
+
+            <div className="col-span-3">
+            <span className="p-2 border-2 border-gray-300 rounded-md m-0.5">
+                <a className="cursor-pointer" onClick={(e) => {decreaseBedSize()}}>  - </a>
+              </span>
+              
+              <AppTextInput
               icon={Bed}
-              className="col-span-3"
+              className='col-span-3 inline-block'
               label="Number of bedrooms"
+              value={props.initialValues.bedrooms}
               name="bedrooms"
               type="number"
             />
+              <span className="p-2 border-2 border-gray-300 rounded-md m-0.5">
+                <a className="cursor-pointer"  onClick={(e) => {increaseBedSize()}}>+</a>
+              </span>
+            </div>
             <AppTextInput
               icon={Lightbulb}
-              className="col-span-3"
+              className="col-span-2"
               label="Energy label"
               name="energyLabel"
               type="text"
